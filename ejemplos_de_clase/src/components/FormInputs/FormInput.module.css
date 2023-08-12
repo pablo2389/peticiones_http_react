@@ -1,0 +1,44 @@
+
+input[type="password"] {
+    font-family: caption;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 39px;
+}
+
+.initialMessage>h1 {
+    font-weight: 1000;
+    font-size: 32px;
+    line-height: 39px;
+    margin-right: 100px;
+}
+
+.inputBox {
+    padding-left: 10px;
+    width: 300px;
+    height: 30px;
+    left: 24px;
+    top: 278px;
+    font-size: 20px;
+    background: #FFFFFF;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.inputBox:focus {
+    outline: none;
+    border: 1px solid rgb(113, 113, 113);
+    box-shadow: 0 0 10px #d9d9d9;
+}
+
+@media (min-width: 1024px) {
+    .inputBox {
+        width: 95%;
+        height: 30px;
+    }
+    label{
+        color:#FFFFFF;
+    }
+}

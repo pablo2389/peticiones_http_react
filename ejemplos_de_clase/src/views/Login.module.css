@@ -1,0 +1,106 @@
+.Container {
+    background:url("../assets/img/login_bg.png") center center/cover no-repeat local;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    padding: 30px; 
+   
+}
+.formContainer {
+    margin-top: 60px;
+    margin-left: 40px;
+    margin-bottom: 50px;
+    width: 339px;
+    height: 359px;
+    padding: 30px;
+    background: #7D674C;
+    box-shadow: 0px 0px 7px 4px #7D674C;
+    border-radius: 15px;
+}
+
+input[type="password"] {
+    font-family: caption;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 39px;
+}
+
+.initialMessage>h1 {
+    font-weight: 1000;
+    font-size: 32px;
+    line-height: 39px;
+    margin-right: 100px;
+}
+
+.initialMessage>p {
+    padding: 15px 15px 15px 0px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 15px;
+}
+
+.inputBox {
+    padding-left: 10px;
+    width: 250px;
+    height: 30px;
+    left: 24px;
+    top: 278px;
+    font-size: 20px;
+    background: #FFFFFF;
+    border: 0px;
+    border-radius: 0px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.inputBox:focus {
+    outline: none;
+    border: 1px solid rgb(113, 113, 113);
+    box-shadow: 0 0 10px #d9d9d9;
+}
+
+.submitButton {
+    width: 95px;
+    height: 31px;
+    background: #323232;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border: 0px;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+.submitButton:hover {
+    background: #e0e0e0;
+    color: #323232;
+    border: #323232 solid 2px;
+    transition: linear 0.3s;
+}
+
+.endMessage {
+    width: 539px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: #ffffff solid 1px;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 18px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.signupLink {
+    color: #FFCF95;
+    font-weight: 1000;
+    font-size: 25px;
+    line-height: 28px;
+}
