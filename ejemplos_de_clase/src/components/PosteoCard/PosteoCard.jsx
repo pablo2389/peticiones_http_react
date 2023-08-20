@@ -1,8 +1,9 @@
 import styles from "./PosteoCard.module.css";
 
+import inoveLogo from "../../assets/img/inove_logo.png"
 import magnifying_glass_logo from "../../assets/img/magnifying_glass_logo.png"
 
-const PosteoCard = ({comicData}) => {
+const PosteoCard = ({posteoData}) => {
 
   const pictures = {
     "Spiderman": "http://i.annihil.us/u/prod/marvel/i/mg/6/c0/59079911f0fdb/standard_xlarge.jpg",
@@ -12,12 +13,20 @@ const PosteoCard = ({comicData}) => {
     "Ant-Man": "http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0/standard_xlarge.jpg",
   }
 
+  const elegirImagen = (titulo) => {
+    if(titulo in pictures) {
+      return pictures[titulo];
+    } else {
+      return inoveLogo;
+    }
+  } 
+
   return (
-        <div className={styles.comicCards}>
+        <div className={styles.posteoCards}>
             <div className={styles.flipBox}>
                 <div className={styles.flipBoxInner}>
                     <div className={styles.flipBoxFront}>
-                        <img className={styles.picture} src={pictures[comicData.titulo]} alt={comicData.titulo}></img>
+                        <img className={styles.picture} src={elegirImagen(posteoData.titulo)} alt={posteoData.titulo}></img>
                     </div>
                     <div className={styles.flipBoxBack}>
                         <img className={styles.backPicture} src={magnifying_glass_logo} alt={"magnify"}></img>
@@ -25,7 +34,7 @@ const PosteoCard = ({comicData}) => {
                 </div>
             </div>
             <div className={styles.cardDescription}>
-                <h3 className={styles.cardTitle}>{comicData.texto.length > 120 ? comicData.texto.substring(0, 110) + " ..." : comicData.texto}</h3>
+                <h3 className={styles.cardTitle}>{posteoData.texto.length > 120 ? posteoData.texto.substring(0, 110) + " ..." : posteoData.texto}</h3>
             </div>
         </div>
   );

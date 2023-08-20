@@ -1,14 +1,21 @@
 import "./App.css";
 
 import AxiosGet from "./components/AxiosGet";
-import RutasEjemplo2 from "./routes/RutasEjemplo2";
+import AxiosPost from "./components/AxiosPost";
+import RouterPrincipal from "./routes/RouterPrincipal";
 
 function App() {
 
   return (
     <div className="App">
-      <AxiosGet />
-      {/* <RutasEjemplo2 /> */}
+      {/* 1 - Ejemplo con Axios y petición GET */}
+      {/* <AxiosGet /> */}
+
+      {/* 2 - Ejemplo con Axios y petición POST */}
+      {/* <AxiosPost /> */}
+
+      {/* 3 - Ejemplo de la página de posteos con AXIOS + backend */}
+      <RouterPrincipal />
     </div>
   );
 }

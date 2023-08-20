@@ -1,13 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
 
-const AxiosGet = () => {
-  const [data, setData] = useState(null)
+const userData = {
+  title: 'POST test con axios',
+  body: 'Este es el body',
+  userId: 1,
+}
 
-  const getUser = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos/1")
+const AxiosPost = () => {
+  const [data, setData] = useState(null);
+
+  const setUser = () => {
+    axios.post("https://jsonplaceholder.typicode.com/posts/", userData)
     .then((response) => {
-      console.log(response);
+      console.table(response.data)
       setData(response.data)
     })
     .catch((error) => {
@@ -17,15 +23,14 @@ const AxiosGet = () => {
   }
 
   return (
-    <div style={{maxWidth: "600px", padding: "50px", fontSize: "28px"}}>
-      <button onClick={() => getUser()}>Obtener datos</button>
+    <div style={{ textAlign: "left", padding: "50px", fontSize: "28px" }}>
+      <button onClick={() => setUser(userData)}> Inserte usuario </button>
       <ul style={{ textAlign: "start", color: "white"}}>
         <li>userId: {data? data.userId : "No Data"}</li>
         <li>id: {data? data.id : "No Data"}</li>
         <li>title: {data? data.title : "No Data"}</li>
-        <li>completed: {data? String(data.completed) : "No Data"}</li>
       </ul>
     </div>
-  )
+  );
 };
-export default AxiosGet;
+export default AxiosPost;

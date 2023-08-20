@@ -2,6 +2,7 @@ import styles from "./Login.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext';
+import { LoginAPI } from "../api/LoginAPI";
 
 const label = (labelName, type, value, name) => {
   return (
@@ -36,31 +37,35 @@ const Login = () => {
       alert("Debe ingresar username y password");
       return;
     }
-    if(password !== "inoveblog") {
-      alert("Password incorrecta");
-      return;
-    }
-
-    // Almacenar en el storage las variable
-    sessionStorage.setItem('isAuthenticated', 'true');
-    sessionStorage.setItem('userName', username);
-
-    // Cambiar el estado de las variables de autenticación
-    setUserName(username);
-    setAuth(true);
-
-    // Definir a dónde deberemos realizar el redirect
-    // 1 - A la página por defecto (home) 
-    // 2 - A la página definida en los query URL parameters
-
-    // Leer los query string en búsqueda del parámetro next
-    const next = new URLSearchParams(location.search).get("next");
-
-    // Si el parámetro next está definido, se hace le redirect allí,
-    // de lo contrario se hace el redirect a "home"
-    const redirectTo = next? next : "/"
     
-    navigate(redirectTo);
+    LoginAPI.post(username, password).then((response) => {
+      // Login efectuado exitosamente
+      // Almacenar en el storage las variable
+      sessionStorage.setItem('isAuthenticated', 'true');
+      sessionStorage.setItem('userName', username);
+
+      // Cambiar el estado de las variables de autenticación
+      setUserName(username);
+      setAuth(true);
+
+      // Definir a dónde deberemos realizar el redirect
+      // 1 - A la página por defecto (home) 
+      // 2 - A la página definida en los query URL parameters
+
+      // Leer los query string en búsqueda del parámetro next
+      const next = new URLSearchParams(location.search).get("next");
+
+      // Si el parámetro next está definido, se hace le redirect allí,
+      // de lo contrario se hace el redirect a "home"
+      const redirectTo = next? next : "/"
+      
+      navigate(redirectTo);
+      
+    }).catch( error => {
+      alert(`No se pudo realizar el login: ${error.code}`);
+      // imprimir el error informado por el backend
+      alert(`${error.response.status} | ${error.response.data.detail}`);
+    });
     
   };
 

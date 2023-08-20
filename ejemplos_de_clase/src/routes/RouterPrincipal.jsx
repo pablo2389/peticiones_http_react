@@ -18,7 +18,7 @@ import RutaProtectedRedirect from "./RutaProtectedRedirect"
 import { AuthContext, initAutenticacion, initUser } from '../context/AuthContext';
 
 
-const RutasEjemplo2 = () => {
+const RouterPrincipal = () => {
   const [auth, setAuth] = useState(initAutenticacion());
   const [userName, setUserName] = useState(initUser());
 
@@ -50,4 +50,4 @@ const RutasEjemplo2 = () => {
   );
 }
 
-export default RutasEjemplo2;
+export default RouterPrincipal;
