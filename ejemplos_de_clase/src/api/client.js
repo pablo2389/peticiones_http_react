@@ -10,11 +10,5 @@ export const client = axios.create({
     baseURL: baseURL,
 });
 
+export const useAuthEndpoints = true;
 
-export const updateToken = (newToken) => {
-  sessionStorage.setItem('token', newToken);
-}
-
-export const removeToken = () => {
-  sessionStorage.removeItem('token');
-}

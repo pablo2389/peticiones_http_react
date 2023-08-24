@@ -2,7 +2,10 @@ import styles from "./Login.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext';
+
+import { useAuthEndpoints } from "../api/client";
 import { LoginAPI } from "../api/LoginAPI";
+import { LoginAuthAPI } from "../api/LoginAuthAPI";
 
 const label = (labelName, type, value, name) => {
   return (
@@ -37,8 +40,8 @@ const Login = () => {
       alert("Debe ingresar username y password");
       return;
     }
-    
-    LoginAPI.post(username, password).then((response) => {
+    const api = useAuthEndpoints? LoginAuthAPI : LoginAPI;
+    api.post(username, password).then((response) => {
       // Login efectuado exitosamente
       // Almacenar en el storage las variable
       sessionStorage.setItem('isAuthenticated', 'true');

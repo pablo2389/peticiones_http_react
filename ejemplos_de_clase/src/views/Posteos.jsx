@@ -1,10 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from '../context/AuthContext';
-import { PosteosAPI } from "../api/PosteosAPI";
 
 import styles from "./Posteos.module.css";
 
 import PosteoCard from "../components/PosteoCard/PosteoCard"
+
+import { useAuthEndpoints } from "../api/client";
+import { PosteosAPI } from "../api/PosteosAPI";
+import { PosteosAuthAPI } from "../api/PosteosAuthAPI";
 
 const Posteos = () => {
   // Tomar datos del contexto
@@ -18,7 +21,9 @@ const Posteos = () => {
       console.log("username no definido")
       return // Sin un usuario no es posible leer los posteos
     }
-    PosteosAPI.get(userName).then((response) => {
+
+    const api = useAuthEndpoints? PosteosAuthAPI : PosteosAPI;
+    api.get(userName).then((response) => {
       console.table(response)
       setPosteos(response)
     }).catch( error => {
