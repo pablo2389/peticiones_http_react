@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
 
 import styles from "./Posteos.module.css";
@@ -16,6 +17,8 @@ const Posteos = () => {
   // Posteos
   const [posteos, setPosteos] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if(!userName) {
       console.log("username no definido")
@@ -28,8 +31,14 @@ const Posteos = () => {
       setPosteos(response)
     }).catch( error => {
       alert(`No se pudo solicitar los posteos: ${error.code}`);
+
       // imprimir el error informado por el backend
-      alert(`${error.response.status} | ${error.response.data.detail}`);
+      console.log(`${error.response.status} | ${error.response.data.detail}`);
+
+      // Si el error es de autenticación, realizar el logout
+      if(error.response.status === 401 || error.response.status === 403) {
+        navigate("/logout");
+      }
     });
   }, [userName]);
 

@@ -10,5 +10,5 @@ export const client = axios.create({
     baseURL: baseURL,
 });
 
-export const useAuthEndpoints = true;
+export const useAuthEndpoints = false;
 
