@@ -9,13 +9,13 @@ function App() {
   return (
     <div className="App">
       {/* 1 - Ejemplo con Axios y petición GET */}
-      {/* <AxiosGet /> */}
+      <AxiosGet />
 
       {/* 2 - Ejemplo con Axios y petición POST */}
       {/* <AxiosPost /> */}
 
       {/* 3 - Ejemplo de la página de posteos con AXIOS + backend */}
-      <RouterPrincipal />
+      {/* <RouterPrincipal /> */}
     </div>
   );
 }
