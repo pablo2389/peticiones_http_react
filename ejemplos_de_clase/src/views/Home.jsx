@@ -3,7 +3,10 @@ import { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
 
 import { AuthContext } from '../context/AuthContext';
-import { PosteosAPI } from "../api/PosteosAPI";
+
+import { useAuthEndpoints } from "../api/client";
+import { posteosAPI } from "../api/posteosAPI";
+import { posteosAuthAPI } from "../api/posteosAuthAPI";
 
 
 const Home = () => {
@@ -23,7 +26,8 @@ const Home = () => {
       return;
     }
 
-    PosteosAPI.post(userName, titulo, texto).then((response) => {
+    const api = useAuthEndpoints? posteosAuthAPI : posteosAPI;
+    api.post(userName, titulo, texto).then((response) => {
       setSubmitText(
         <Link to="/posteos">Posteo realizado, haga click aquí para verlo</Link>
       )
