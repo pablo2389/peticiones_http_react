@@ -1,7 +1,7 @@
 import { client } from "./client"
 import qs from 'qs';
 
-export const LoginAPI = {
+export const loginAPI = {
   post: async function (usuario, password) {
     // Transformamos los datos a enviar en JSON String
     // para enviar dentro de un form

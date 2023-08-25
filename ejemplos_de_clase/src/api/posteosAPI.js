@@ -1,14 +1,9 @@
 import { client } from "./client"
-import { getToken } from "./token"
 
-export const PosteosAuthAPI = {
+export const posteosAPI = {
   get: async function (username) {
-    const token = getToken()
     const response = await client.request({
-      url: `/auth/posteos/${username}`,
-      headers: {
-        "Authorization": `Bearer ${token}`
-      },
+      url: `/posteos/${username}`,
       method: "GET",
     })
     if(response) {
@@ -16,12 +11,8 @@ export const PosteosAuthAPI = {
     }
   },
   post: async function (username, titulo, texto) {
-    const token = getToken()
     const response = await client.request({
-      url: `/auth/posteos/${username}`,
-      headers: {
-        "Authorization": `Bearer ${token}`
-      },
+      url: `/posteos/${username}`,
       method: "POST",
       data: {
         titulo: titulo,

@@ -4,8 +4,8 @@ import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext';
 
 import { useAuthEndpoints } from "../api/client";
-import { LoginAPI } from "../api/LoginAPI";
-import { LoginAuthAPI } from "../api/LoginAuthAPI";
+import { loginAPI } from "../api/loginAPI";
+import { loginAuthAPI } from "../api/loginAuthAPI";
 
 const label = (labelName, type, value, name) => {
   return (
@@ -40,7 +40,7 @@ const Login = () => {
       alert("Debe ingresar username y password");
       return;
     }
-    const api = useAuthEndpoints? LoginAuthAPI : LoginAPI;
+    const api = useAuthEndpoints? loginAuthAPI : loginAPI;
     api.post(username, password).then((response) => {
       // Login efectuado exitosamente
       // Almacenar en el storage las variable

@@ -7,8 +7,8 @@ import styles from "./Posteos.module.css";
 import PosteoCard from "../components/PosteoCard/PosteoCard"
 
 import { useAuthEndpoints } from "../api/client";
-import { PosteosAPI } from "../api/PosteosAPI";
-import { PosteosAuthAPI } from "../api/PosteosAuthAPI";
+import { posteosAPI } from "../api/posteosAPI";
+import { posteosAuthAPI } from "../api/posteosAuthAPI";
 
 const Posteos = () => {
   // Tomar datos del contexto
@@ -25,7 +25,7 @@ const Posteos = () => {
       return // Sin un usuario no es posible leer los posteos
     }
 
-    const api = useAuthEndpoints? PosteosAuthAPI : PosteosAPI;
+    const api = useAuthEndpoints? posteosAuthAPI : posteosAPI;
     api.get(userName).then((response) => {
       console.table(response)
       setPosteos(response)

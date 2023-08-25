@@ -2,7 +2,7 @@ import { client } from "./client"
 import { setToken } from "./token"
 import qs from 'qs';
 
-export const LoginAuthAPI = {
+export const loginAuthAPI = {
   post: async function (usuario, password) {
     // Transformamos los datos a enviar en JSON String
     // para enviar dentro de un form
