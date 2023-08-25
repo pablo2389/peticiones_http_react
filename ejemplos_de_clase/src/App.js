@@ -14,7 +14,7 @@ function App() {
       {/* 2 - Ejemplo con Axios y petición POST */}
       {/* <AxiosPost /> */}
 
-      {/* 3 - Ejemplo de la página de posteos con AXIOS + backend */}
+      {/* 3 y 4 - Ejemplo de la página de posteos con AXIOS + backend */}
       {/* <RouterPrincipal /> */}
     </div>
   );
